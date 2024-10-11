@@ -1,101 +1,102 @@
 <template>
-  <view class="container">
-    <!-- 添加标题 -->
-    <view class="header">
-      <text class="header-text">仓库发货</text>
-    </view>
-    <!-- 菜单横向排布 -->
-    <view class="menu-container">
-      <view class="menu-item" @click="navigateTo('pages/delivery/inStock')">
-        <image src="/static/menu/inStock.png" class="menu-icon"></image>
-        <text class="menu-text">产品入库</text>
-      </view>
-      <view class="menu-item" @click="navigateTo('pages/delivery/transfer')">
-        <image src="/static/menu/transfer.png" class="menu-icon"></image>
-        <text class="menu-text">调拨发料</text>
-      </view>
-      <view class="menu-item" @click="navigateTo('pages/delivery/transferShip')">
-        <image src="/static/menu/transfer_ship.png" class="menu-icon"></image>
-        <text class="menu-text">发货调拨</text>
-      </view>
-      <view class="menu-item" @click="navigateTo('pages/delivery/outStock')">
-        <image src="/static/menu/outStock.png" class="menu-icon"></image>
-        <text class="menu-text">销售出库</text>
-      </view>
-    </view>
-  </view>
+	<view class="container">
+		<!-- 添加标题 -->
+		<view class="header">
+			<text class="header-text">仓库发货</text>
+		</view>
+		<!-- 菜单横向排布 -->
+		<view class="menu-container">
+			<view class="menu-item" style="margin-left: -10rpx;" @click="navigateTo('pages/delivery/inStock')">
+				<image src="/static/menu/inStock.png" class="menu-icon"></image>
+				<text class="menu-text">产品入库</text>
+			</view>
+			<view class="menu-item"  @click="navigateTo('pages/delivery/transfer')">
+				<image src="/static/menu/transfer.png" class="menu-icon"></image>
+				<text class="menu-text">调拨发料</text>
+			</view>
+			<view class="menu-item"   @click="navigateTo('pages/delivery/transferShip')">
+				<image src="/static/menu/transfer_ship.png" class="menu-icon"></image>
+				<text class="menu-text">发货调拨</text>
+			</view>
+			<view class="menu-item"  @click="navigateTo('pages/delivery/outStock')">
+				<image src="/static/menu/outStock.png" class="menu-icon"></image>
+				<text class="menu-text">销售出库</text>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
-export default {
-	methods: {
-	  navigateTo(url) {
-	    if (url.includes('pages/common/menu') || url.includes('pages/common/user')) {
-	      uni.switchTab({
-	        url: url
-	      });
-	    } else {
-	      uni.navigateTo({
-	        url: url
-	      });
-	    }
-	  }
-	}
+	export default {
+		// methods: {
+		//   navigateTo(url) {
+		//     if (url.includes('pages/common/menu') || url.includes('pages/common/user')) {
+		//       uni.switchTab({
+		//         url: url
+		//       });
+		//     } else {
+		//       uni.navigateTo({
+		//         url: url
+		//       });
+		//     }
+		//   }
+		// }
 
-  // methods: {
-  //   // 页面跳转
-  //   navigateTo(url) {
-  //     uni.navigateTo({
-  //       url: url
-  //     });
-  //   }
-  // }
-};
+		methods: {
+		  // 页面跳转
+		  navigateTo(url) {
+		    uni.navigateTo({
+		      url: url
+		    });
+		  }
+		}
+	};
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 20px;
+	}
 
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 10px;
-}
+	.header {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		margin-bottom: 10px;
+	}
 
-.header-text {
-  font-size: 20px;
-  font-weight: bold;
-}
+	.header-text {
+		font-size: 20px;
+		font-weight: bold;
+	}
 
-.menu-container {
-  display: flex;
-  flex-direction: row; /* 横向排列 */
-  justify-content: space-between;
-  width: 100%;
-}
+	.menu-container {
+		display: flex;
+		flex-direction: row;
+		/* 横向排列 */
+		justify-content: space-between;
+		width: 100%;
+	}
 
-.menu-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
+	.menu-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 10px;
+	}
 
-.menu-icon {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 5px;
-}
+	.menu-icon {
+		width: 50px;
+		height: 50px;
+		margin-bottom: 5px;
+	}
 
-.menu-text {
-  font-size: 14px;
-  text-align: center;
-}
+	.menu-text {
+		font-size: 14px;
+		text-align: center;
+	}
 </style>

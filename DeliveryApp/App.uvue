@@ -3,34 +3,65 @@
 	export default {
 		onLaunch: function () {
 			console.log('App Launch')
+
+			// 添加全局请求拦截器
+			uni.addInterceptor('request', {
+				invoke(args) {
+					// 在每次请求前添加全局处理，例如添加Token
+					// args.header = {
+					// 	...args.header,
+					// 	'Authorization': 'Bearer your_token_here' // 示例，可以替换为实际的Token
+					// };
+					console.log('请求拦截器：请求之前', args);
+				},
+				success(args) {
+					// 处理成功的响应
+					console.log('请求拦截器：请求成功', args);
+					if (args.statusCode === 401) {
+						uni.showToast({
+							title: '请先登录',
+							icon: 'none'
+						});
+						uni.redirectTo({ url: '/pages/login/login' });
+					}
+				},
+				fail(err) {
+					// 处理请求失败
+					uni.showToast({
+						title: '网络错误',
+						icon: 'none'
+					});
+					console.log('请求拦截器：请求失败', err);
+				}
+			});
 		},
 		onShow: function () {
-			console.log('App Show')
+			console.log('App Show');
 		},
 		onHide: function () {
-			console.log('App Hide')
+			console.log('App Hide');
 		},
 		// #ifdef APP-ANDROID
 		onLastPageBackPress: function () {
-			console.log('App LastPageBackPress')
+			console.log('App LastPageBackPress');
 			if (firstBackTime == 0) {
 				uni.showToast({
 					title: '再按一次退出应用',
 					position: 'bottom',
-				})
-				firstBackTime = Date.now()
+				});
+				firstBackTime = Date.now();
 				setTimeout(() => {
-					firstBackTime = 0
-				}, 2000)
+					firstBackTime = 0;
+				}, 2000);
 			} else if (Date.now() - firstBackTime < 2000) {
-				firstBackTime = Date.now()
-				uni.exit()
+				firstBackTime = Date.now();
+				uni.exit();
 			}
 		},
 		// #endif
 		onExit: function () {
-			console.log('App Exit')
-		},
+			console.log('App Exit');
+		}
 	}
 </script>
 
