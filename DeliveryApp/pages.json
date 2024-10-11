@@ -1,0 +1,73 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/common/login",
+			"style": {
+				"navigationBarTitleText": "HighField"
+			}
+		},
+		 {
+		      "path": "pages/common/menu",
+		      "style": {
+		        "navigationBarTitleText": "菜单"
+		      }
+		    },
+		    {
+		      "path": "pages/common/user",
+		      "style": {
+		        "navigationBarTitleText": "我的"
+		      }
+		    },
+			{
+			  "path": "pages/delivery/inStock",
+			  "style": {
+			    "navigationBarTitleText": "产品入库"
+			  }
+			},
+			{
+			  "path": "pages/delivery/transfer",
+			  "style": {
+			    "navigationBarTitleText": "调拨发料"
+			  }
+			},
+			{
+			  "path": "pages/delivery/transferShip",
+			  "style": {
+			    "navigationBarTitleText": "发货调拨"
+			  }
+			},
+			{
+			  "path": "pages/delivery/outStock",
+			  "style": {
+			    "navigationBarTitleText": "销售出库"
+			  }
+			}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app x",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	  "tabBar": {
+	    "color": "#999999",  // 未选中的文字颜色
+	    "selectedColor": "#007aff",  // 选中的文字颜色
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",  // 底部导航栏背景色
+	    "list": [
+	      {
+	        "pagePath": "pages/common/menu",
+	        "text": "菜单"
+	         // "iconPath": "static/logo.png",  // 未选中时的图标
+	         // "selectedIconPath": "static/menu/profile.png"  // 选中时的图标
+	      },
+	      {
+	        "pagePath": "pages/common/user",
+	        "text": "我的"
+	        // "iconPath": "static/icon_user.png",
+	        // "selectedIconPath": "static/icon_user_selected.png"
+	      }
+	    ]
+	  }
+}

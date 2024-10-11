@@ -1,0 +1,20 @@
+<template> 
+  <view class="container">
+    <text>发货调拨</text>
+  </view>
+</template>
+
+<script>
+export default {
+  data() {
+    return {};
+  }
+};
+</script>
+
+<style scoped>
+.container {
+  padding: 20px;
+  text-align: center;
+}
+</style>  

@@ -1,0 +1,123 @@
+<template>
+  <view class="container">
+    <!-- 标题 -->
+    <view class="title">登录</view>
+    
+    <!-- 请选择数据中心 -->
+    <view class="form-group">
+      <text>请选择数据中心:</text>
+      <picker mode="selector" :range="dataCenters" @change="onDataCenterChange">
+        <view class="picker">
+          {{ selectedDataCenter }}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 账户 -->
+    <view class="form-group">
+      <text>账户:</text>
+      <input type="text" placeholder="请输入账户" v-model="account" />
+    </view>
+
+    <!-- 密码 -->
+    <view class="form-group">
+      <text>密码:</text>
+      <input type="password" placeholder="请输入密码" v-model="password" />
+    </view>
+
+    <!-- 登录按钮 -->
+    <button type="primary" @click="login">登录</button>
+  </view>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      dataCenters: ['数据中心1', '数据中心2', '数据中心3'], // 数据中心选项
+      selectedDataCenter: '请选择数据中心', // 默认提示
+      account: '', // 账户
+      password: '' // 密码
+    };
+  },
+  methods: {
+  // 登录按钮点击事件
+  login() {
+    // if (!this.selectedDataCenter || this.selectedDataCenter === '请选择数据中心') {
+    //   uni.showToast({
+    //     title: '请选择数据中心',
+    //     icon: 'none'
+    //   });
+    //   return;
+    // }
+    if (!this.account) {
+      uni.showToast({
+        title: '请输入账户',
+        icon: 'none'
+      });
+      return;
+    }
+    if (!this.password) {
+      uni.showToast({
+        title: '请输入密码',
+        icon: 'none'
+      });
+      return;
+    }
+    // 模拟登录成功
+    uni.showToast({
+      title: '登录成功',
+      icon: 'success',
+      duration: 1000
+    });
+    setTimeout(() => {
+      // 登录成功后跳转到主界面
+      uni.switchTab({
+        url: '/pages/common/menu'
+      });
+    }, 1000);
+  }
+}
+
+};
+</script>
+
+<style scoped>
+.container {
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.picker {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007aff;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+</style>
